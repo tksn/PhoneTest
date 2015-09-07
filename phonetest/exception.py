@@ -1,8 +1,6 @@
 
 class PhoneTestException(Exception):
-
-    """
-    """
+    """ PhoneTest exception class """
 
     def __init__(self, message=''):
         self.message = message

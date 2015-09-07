@@ -57,7 +57,7 @@ class LogcatWatcher(object):
         with self.lock:
             fatal = self.errors.get('FATAL EXCEPTION')
             if fatal:
-                raise phonetest.exception.PhonetestException(
+                raise phonetest.exception.PhoneTestException(
                     '[{0}]Found fatal error in logcat log - {1}'.format(context_str, fatal))
 
 

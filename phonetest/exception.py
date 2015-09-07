@@ -1,5 +1,5 @@
 
-class PhonetestException(Exception):
+class PhoneTestException(Exception):
 
     """
     """
@@ -8,4 +8,4 @@ class PhonetestException(Exception):
         self.message = message
 
     def __str__(self):
-        return 'PhonetestException: {0}'.format(self.message)
+        return 'PhoneTestException: {0}'.format(self.message)

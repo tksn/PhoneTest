@@ -4,20 +4,6 @@ from phonetest.exception import PhoneTestException
 from phonetest.logcat import *
 
 
-@pytest.fixture()
-def fake_adb(monkeypatch):
-    fake_process = type('FakeAdbProcess', (), {})()
-    fake_process.stdout = io.BytesIO()
-    fake_process.kill = lambda: None
-    fake_process.communicate = lambda: None
-
-    def fake_popen(_0, stdout):
-        return fake_process
-
-    monkeypatch.setattr('subprocess.Popen', fake_popen)
-    return fake_process
-
-
 def set_fake_adb_data(fake_adb, data):
     fake_adb.stdout.writelines(data)
     fake_adb.stdout.seek(0)

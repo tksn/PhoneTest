@@ -1,0 +1,29 @@
+endpoint: 'http://localhost:4723/wd/hub'
+platform_version: '4.4'
+startup_activity: PhoneDialer
+
+activities:
+  PhoneDialer:
+    package: com.sonyericsson.android.socialphonebook
+    activity: .DialerEntryActivity
+    elements:
+      '0': { id: 'com.sonyericsson.android.socialphonebook:id/zero' }
+      '1': { id: 'com.sonyericsson.android.socialphonebook:id/one' }
+      '2': { id: 'com.sonyericsson.android.socialphonebook:id/two' }
+      '3': { id: 'com.sonyericsson.android.socialphonebook:id/three' }
+      '4': { id: 'com.sonyericsson.android.socialphonebook:id/four' }
+      '5': { id: 'com.sonyericsson.android.socialphonebook:id/five' }
+      '6': { id: 'com.sonyericsson.android.socialphonebook:id/six' }
+      '7': { id: 'com.sonyericsson.android.socialphonebook:id/seven' }
+      '8': { id: 'com.sonyericsson.android.socialphonebook:id/eight' }
+      '9': { id: 'com.sonyericsson.android.socialphonebook:id/nine' }
+      '*': { id: 'com.sonyericsson.android.socialphonebook:id/star' }
+      '#': { id: 'com.sonyericsson.android.socialphonebook:id/pound' }
+      backspace: { id: 'com.sonyericsson.android.socialphonebook:id/deleteButton' }
+      call: { id: 'com.sonyericsson.android.socialphonebook:id/call_button' }
+      digits: { id: 'com.sonyericsson.android.socialphonebook:id/digits' }
+
+  PhoneInCall:
+    activity: .SomcInCallScreen
+    clickable:
+      end_call: { id: 'com.android.phone:id/endCallButton' }

@@ -8,6 +8,9 @@
   <component name="PackageRequirementsSettings">
     <option name="requirementsPath" value="" />
   </component>
+  <component name="PyBDDFrameworkConfig">
+    <option name="preferedFrameworkName" value="behave" />
+  </component>
   <component name="ReSTService">
     <option name="workdir" value="$MODULE_DIR$/" />
     <option name="DOC_DIR" value="$MODULE_DIR$/" />

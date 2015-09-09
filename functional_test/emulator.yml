@@ -1,0 +1,10 @@
+endpoint: 'http://localhost:4723/wd/hub'
+platform_version: '4.4'
+startup_activity: TestProbe
+
+activities:
+  TestProbe:
+    package: com.phonetest.testprobe
+    activity: .MainActivity
+    elements:
+      'crash': { xpath: '//android.widget.Button[@text="Crash"]' }

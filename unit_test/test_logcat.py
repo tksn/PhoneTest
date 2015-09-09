@@ -1,6 +1,6 @@
 import io
 import pytest
-from phonetest.exception import PhoneTestException
+from phonetest.exception import LogcatException
 from phonetest.logcat import *
 
 
@@ -17,7 +17,7 @@ def run_logcat_watcher(fake_adb, data):
 
 
 def test_logcat_fatal_exception_found(fake_adb):
-    with pytest.raises(PhoneTestException) as excinfo:
+    with pytest.raises(LogcatException) as excinfo:
         run_logcat_watcher(
             fake_adb, [
                 b'I/ActivityManager(  999999): -------',
@@ -46,7 +46,7 @@ def test_logcat_check_decorator(fake_adb):
     start_logcat_watcher()
     stop_logcat_watcher()
 
-    with pytest.raises(PhoneTestException) as excinfo:
+    with pytest.raises(LogcatException) as excinfo:
         func()
     assert 'fatal' in str(excinfo.value)
     assert 'pre_op' in str(excinfo.value)

@@ -13,7 +13,7 @@ class _LogcatWatcherThread(threading.Thread):
     ADB_COMMAND = ['adb', 'logcat']
 
     def __init__(self):
-        threading.Thread.__init__(self)
+        threading.Thread.__init__(self, daemon=True)
         self.callbacks = []
         self.process = subprocess.Popen(self.ADB_COMMAND, stdout=subprocess.PIPE)
         self.started_event = threading.Event()
@@ -57,7 +57,7 @@ class LogcatWatcher(object):
         with self.lock:
             fatal = self.errors.get('FATAL EXCEPTION')
             if fatal:
-                raise phonetest.exception.PhoneTestException(
+                raise phonetest.exception.LogcatException(
                     '[{0}]Found fatal error in logcat log - {1}'.format(context_str, fatal))
 
 

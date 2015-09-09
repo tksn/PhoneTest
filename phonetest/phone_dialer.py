@@ -1,24 +1,10 @@
-from appium.webdriver.common.touch_action import TouchAction
-from phonetest.logcat import with_logcat_check
+from phonetest.genericapp import GenericApp
 
-class PhoneDialer(object):
+
+class PhoneDialer(GenericApp):
 
     def __init__(self, driver, config):
-        self.driver = driver
-        self.config = config
-        self.elements = config.get('elements', {})
-
-    @with_logcat_check
-    def tap(self, element_name):
-        if element_name in self.elements:
-            self.driver.find_element_by_id(self.elements[element_name]).click()
-
-    @with_logcat_check
-    def longtap(self, element_name):
-        if element_name in self.elements:
-            TouchAction(self.driver)\
-                .long_press(self.driver.find_element_by_id(self.elements[element_name]))\
-                .release().perform()
+        GenericApp.__init__(self, driver, config)
 
     def dial(self, numbers):
         self.longtap('backspace')
